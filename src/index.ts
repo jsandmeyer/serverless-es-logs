@@ -252,7 +252,7 @@ class ServerlessEsLogsPlugin {
   }
 
   private addLogProcesser(): void {
-    const { index, endpoint, tags } = this.custom().esLogs;
+    const { index, endpoint, tags, vpc } = this.custom().esLogs;
     const tagsStringified = tags ? JSON.stringify(tags) : /* istanbul ignore next */ '';
     const dirPath = path.join(this.serverless.config.servicePath, this.logProcesserDir);
     const filePath = path.join(dirPath, 'index.js');
@@ -279,6 +279,7 @@ class ServerlessEsLogsPlugin {
       runtime: 'nodejs8.10',
       timeout: 60,
       tracing: false,
+      vpc,
     };
   }
 

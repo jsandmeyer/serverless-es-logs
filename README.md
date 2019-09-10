@@ -126,6 +126,24 @@ provider:
   role: arn:aws:iam::123456789012:role/MyCustomRole
 ```
 
+#### vpc
+
+(Optional) Override Serverless's VPC options for the log processer lambda and use the manually specififed VPC configuration. Default is undefined.
+
+Refer to [Serverless's VPC Configuration guide for functions](https://serverless.com/framework/docs/providers/aws/guide/functions#vpc-configuration) for details.
+
+```yaml
+custom:
+  esLogs:
+    vpc:
+      securityGroupIds:
+        - securityGroupId1
+        - securityGroupId2
+      subnetIds:
+        - subnetId1
+        - subnetId2
+```
+
 [sls-image]:http://public.serverless.com/badges/v3.svg
 [sls-url]:http://www.serverless.com
 [npm-image]:https://img.shields.io/npm/v/serverless-es-logs.svg
